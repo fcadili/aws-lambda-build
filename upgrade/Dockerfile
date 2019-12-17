@@ -11,3 +11,7 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 RUN curl -L https://ftp.gnu.org/pub/gnu/gettext/gettext-0.20.1.tar.gz | tar xzC .
 RUN cd gettext-0.20.1 && ./configure && make install
 RUN rm -rf gettext-0.20.1*
+RUN rpm --rebuilddb && yum install -y gobject-introspection-devel
+RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+RUN rpm --rebuilddb && yum install -y nodejs
+RUN rpm --rebuilddb && yum install -y libtool-ltdl-devel
